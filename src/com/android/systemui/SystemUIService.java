@@ -63,6 +63,7 @@ public class SystemUIService extends Service {
         super.onCreate();
 
         // Start all of SystemUI
+        //初始化SystemUI各个功能模块
         ((SystemUIApplication) getApplication()).startServicesIfNeeded();
 
         // Finish initializing dump logic

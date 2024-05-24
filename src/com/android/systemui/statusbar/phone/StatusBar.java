@@ -1008,7 +1008,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         updateDisplaySize(); // populates mDisplayMetrics
         updateResources();
         updateTheme();
-
+        //题注 2
         inflateStatusBarWindow();
         mNotificationShadeWindowViewController.setService(this, mNotificationShadeWindowController);
         mNotificationShadeWindowView.setOnTouchListener(getStatusBarWindowTouchListener());
@@ -1037,6 +1037,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         // Allow plugins to reference DarkIconDispatcher and StatusBarStateController
         mPluginDependencyProvider.allowPluginDependency(DarkIconDispatcher.class);
         mPluginDependencyProvider.allowPluginDependency(StatusBarStateController.class);
+        //题注 4 添加视图
         FragmentHostManager.get(mPhoneStatusBarWindow)
                 .addTagListener(CollapsedStatusBarFragment.TAG, (tag, fragment) -> {
                     CollapsedStatusBarFragment statusBarFragment =
@@ -1450,7 +1451,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 .getNotificationShadeWindowViewController();
         mNotificationShadeWindowController.setNotificationShadeView(mNotificationShadeWindowView);
         mNotificationShadeWindowViewController.setupExpandedStatusBar();
+        //题注 3
+        //创建PhoneStatus控制器
         mStatusBarWindowController = statusBarComponent.getStatusBarWindowController();
+        //创建PhoneStatusBarWindow
         mPhoneStatusBarWindow = mSuperStatusBarViewFactory.getStatusBarWindowView();
         mNotificationPanelViewController = statusBarComponent.getNotificationPanelViewController();
     }
@@ -2628,8 +2632,10 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     public void createAndAddWindows(@Nullable RegisterStatusBarResult result) {
+        //题注 1
         makeStatusBarView(result);
         mNotificationShadeWindowController.attach();
+        //题注 5将状态栏添加到窗口
         mStatusBarWindowController.attach();
     }
 

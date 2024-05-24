@@ -70,12 +70,15 @@ public class SystemUIApplication extends Application implements
         Log.v(TAG, "SystemUIApplication created.");
         // This line is used to setup Dagger's dependency injection and should be kept at the
         // top of this method.
+        // TimingsTraceLog　是一个用于跟踪代码执行时间的工具类，它可以在traceview中看到。
         TimingsTraceLog log = new TimingsTraceLog("SystemUIBootTiming",
                 Trace.TRACE_TAG_APP);
         log.traceBegin("DependencyInjection");
+        // 此行用于设置Dagger的依赖注入，并应保持在onrecate方法的顶部。
         mContextAvailableCallback.onContextAvailable(this);
         mRootComponent = SystemUIFactory.getInstance().getRootComponent();
         mComponentHelper = mRootComponent.getContextComponentHelper();
+        // BootCompleteCacheImpl 是一个用于缓存 BOOT_COMPLETED 广播的实现类。
         mBootCompleteCache = mRootComponent.provideBootCacheImpl();
         log.traceEnd();
 
@@ -83,10 +86,12 @@ public class SystemUIApplication extends Application implements
         // application theme in the manifest does only work for activities. Keep this in sync with
         // the theme set there.
         setTheme(R.style.Theme_SystemUI);
-
+        //判断当前进程是否是系统进程。如果是系统进程，那么就注册 BOOT_COMPLETED（开机广播） 广播接收器。
         if (Process.myUserHandle().equals(UserHandle.SYSTEM)) {
+            // 创建 BOOT_COMPLETED 广播接收器的意图过滤器。
             IntentFilter bootCompletedFilter = new IntentFilter(Intent.ACTION_BOOT_COMPLETED);
             bootCompletedFilter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+            // 注册 BOOT_COMPLETED 广播接收器。
             registerReceiver(new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
@@ -95,15 +100,17 @@ public class SystemUIApplication extends Application implements
                     if (DEBUG) Log.v(TAG, "BOOT_COMPLETED received");
                     unregisterReceiver(this);
                     mBootCompleteCache.setBootComplete();
+                    // 判断SystemUIService是否启动
                     if (mServicesStarted) {
                         final int N = mServices.length;
                         for (int i = 0; i < N; i++) {
+                            // 通知SystemUI中各个组件，系统启动完成。
                             mServices[i].onBootCompleted();
                         }
                     }
                 }
             }, bootCompletedFilter);
-
+            // Intent.ACTION_LOCALE_CHANGED 是系统语言发生变化时发送的广播。
             IntentFilter localeChangedFilter = new IntentFilter(Intent.ACTION_LOCALE_CHANGED);
             registerReceiver(new BroadcastReceiver() {
                 @Override
@@ -111,6 +118,7 @@ public class SystemUIApplication extends Application implements
                     if (Intent.ACTION_LOCALE_CHANGED.equals(intent.getAction())) {
                         if (!mBootCompleteCache.isBootComplete()) return;
                         // Update names of SystemUi notification channels
+                        // 更新SystemUi通知通道的名称
                         NotificationChannels.createAll(context);
                     }
                 }
