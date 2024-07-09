@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/plugin/ExamplePlugin/ExamplePlugin.iml" filepath="$PROJECT_DIR$/plugin/ExamplePlugin/ExamplePlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SystemUI.iml" filepath="$PROJECT_DIR$/SystemUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/animation/animation.iml" filepath="$PROJECT_DIR$/animation/animation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugin/bcsmartspace/bcsmartspace.iml" filepath="$PROJECT_DIR$/plugin/bcsmartspace/bcsmartspace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/checks/checks.iml" filepath="$PROJECT_DIR$/checks/checks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compose/core/core.iml" filepath="$PROJECT_DIR$/compose/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compose/features/features.iml" filepath="$PROJECT_DIR$/compose/features/features.iml" />
+      <module fileurl="file://$PROJECT_DIR$/monet/monet.iml" filepath="$PROJECT_DIR$/monet/monet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugin/plugin.iml" filepath="$PROJECT_DIR$/plugin/plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugin_core/plugin_core.iml" filepath="$PROJECT_DIR$/plugin_core/plugin_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/screenshot/screenshot.iml" filepath="$PROJECT_DIR$/screenshot/screenshot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shared/shared.iml" filepath="$PROJECT_DIR$/shared/shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compose/testing/testing.iml" filepath="$PROJECT_DIR$/compose/testing/testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tests/tests.iml" filepath="$PROJECT_DIR$/tests/tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compose/features/tests/tests1.iml" filepath="$PROJECT_DIR$/compose/features/tests/tests1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/checks/tests/tests2.iml" filepath="$PROJECT_DIR$/checks/tests/tests2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compose/core/tests/tests3.iml" filepath="$PROJECT_DIR$/compose/core/tests/tests3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unfold/unfold.iml" filepath="$PROJECT_DIR$/unfold/unfold.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tests/utils/utils.iml" filepath="$PROJECT_DIR$/tests/utils/utils.iml" />
+    </modules>
+  </component>
+</project>
